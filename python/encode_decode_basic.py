@@ -8,7 +8,8 @@
 
 import os
 import sys
-
+import binascii
+import random
 import kodo
 
 
@@ -16,12 +17,12 @@ def main():
     """Simple example showing how to encode and decode a block of memory."""
     # Set the number of symbols (i.e. the generation size in RLNC
     # terminology) and the size of a symbol in bytes
-    symbols = 10
-    symbol_size = 16
+    symbols = 8
+    symbol_size = 1
 
     # In the following we will make an encoder/decoder factory.
     # The factories are used to build actual encoders/decoders
-    encoder_factory = kodo.FullVectorEncoderFactoryBinary8(symbols, symbol_size)
+    encoder_factory = kodo.SparseFullVectorEncoderFactoryBinary8(symbols, symbol_size)
     encoder = encoder_factory.build()
 
     decoder_factory = kodo.FullVectorDecoderFactoryBinary8(symbols, symbol_size)
@@ -43,7 +44,7 @@ def main():
     while not decoder.is_complete():
         # Generate an encoded packet
         packet = encoder.write_payload()
-        print("Packet {} encoded : {}".format(packet_number, packet))
+        print("Packet {} encoded : {}".format(packet_number, binascii.hexlify(packet)))
 
         # Pass that packet to the decoder
         decoder.read_payload(packet)
@@ -55,7 +56,7 @@ def main():
 
     # The decoder is complete, now copy the symbols from the decoder
     data_out = decoder.copy_from_symbols()
-    print("data out: {}".format(data_out))
+    print("data out: {}".format(binascii.hexlify(data_out)))
 
     # Check if we properly decoded the data
     print("Checking results")
