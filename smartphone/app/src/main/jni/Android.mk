@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := kodoc
-LOCAL_SRC_FILES := lib/$(TARGET_ARCH_ABI)/libkodoc_static.a
+LOCAL_SRC_FILES := libs/$(TARGET_ARCH_ABI)/libkodoc_static.a
 include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
