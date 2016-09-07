@@ -4,6 +4,9 @@
 // http://www.steinwurf.com/licensing
 
 #include "com_steinwurf_dummy_android_MainActivity.h"
+#include <cstdlib>
+#include <time.h>
+#include "kodoc/kodoc.h"
 
 JNIEXPORT
 jboolean JNICALL Java_com_steinwurf_dummy_1android_MainActivity_runKodo(JNIEnv* env, jobject thiz)
@@ -23,13 +26,9 @@ jboolean JNICALL Java_com_steinwurf_dummy_1android_MainActivity_runKodo(JNIEnv* 
     int32_t finite_field = kodoc_binary;
 
     // Create the factories
-    kodoc_factory_t encoder_factory =
-        kodoc_new_encoder_factory(code_type, finite_field,
-                                 max_symbols, max_symbol_size);
+    kodoc_factory_t encoder_factory = kodoc_new_encoder_factory(code_type, finite_field, max_symbols, max_symbol_size);
 
-    kodoc_factory_t decoder_factory =
-        kodoc_new_decoder_factory(code_type, finite_field,
-                                 max_symbols, max_symbol_size);
+    kodoc_factory_t decoder_factory = kodoc_new_decoder_factory(code_type, finite_field, max_symbols, max_symbol_size);
 
     // Create the coders
     kodoc_coder_t encoder = kodoc_factory_build_coder(encoder_factory);
