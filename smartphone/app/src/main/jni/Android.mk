@@ -17,14 +17,6 @@ include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE    := main
-LOCAL_CPPFLAGS   += -std=c++0x
-LOCAL_SRC_FILES := main.cpp
-LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog
-include $(BUILD_SHARED_LIBRARY)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE_TAGS := optional
 SYSROOT := /opt/android-ndk-platform23-toolchain/sysroot
 LOCAL_MODULE    := android_test
 LOCAL_CPPFLAGS   += -std=c++0x  -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16
