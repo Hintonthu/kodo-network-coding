@@ -12,7 +12,7 @@ public class MainActivity extends ActionBarActivity {
         System.loadLibrary("android_test");
     }
 
-    public native boolean runKodo();
+    public native String runKodo();
 
     TextView mResult;
 
@@ -26,9 +26,7 @@ public class MainActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mResult.setText(getString(
-                        runKodo() ? R.string.resultSuccess : R.string.resultFail
-                ));
+                mResult.setText(runKodo());
             }
         });
     }

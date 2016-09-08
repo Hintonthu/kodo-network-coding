@@ -178,7 +178,7 @@ kodoc_coder_t kodoc_factory_build_coder(kodoc_factory_t factory);
 
 /// Deallocates and releases the memory consumed by a coder
 /// @param coder The coder which should be deallocated
-KODOC_API
+KODOC_APIs
 void kodoc_delete_coder(kodoc_coder_t coder);
 
 //------------------------------------------------------------------
