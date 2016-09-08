@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity {
 
     static {
-        System.loadLibrary("android_dummy");
+        System.loadLibrary("android_test");
     }
 
     public native boolean runKodo();
