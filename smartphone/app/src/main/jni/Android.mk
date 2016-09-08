@@ -24,3 +24,13 @@ LOCAL_SRC_FILES := com_steinwurf_dummy_android_MainActivity.cpp
 LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog
 LOCAL_STATIC_LIBRARIES := kodoc fifi cpuid
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
+SYSROOT := /opt/android-ndk-platform23-toolchain/sysroot
+LOCAL_MODULE    := kodo_java
+LOCAL_CPPFLAGS   += -std=c++0x  -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16
+LOCAL_SRC_FILES := kodo_java.cpp
+LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog
+LOCAL_STATIC_LIBRARIES := kodoc fifi cpuid
+include $(BUILD_SHARED_LIBRARY)
