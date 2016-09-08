@@ -67,16 +67,16 @@ def relay_simulation(symbols,
                              | relayN |
                              +--------+
     """
-    encoder_factory = kodo.FulcrumEncoderFactoryBinary8(symbols, symbol_size)
-    decoder_factory = kodo.FulcrumDecoderFactoryBinary8(symbols, symbol_size)
+    encoder_factory = kodo.NoCodeEncoderFactory(symbols, symbol_size)
+    decoder_factory = kodo.NoCodeDecoderFactory(symbols, symbol_size)
     s = simulator.Simulator(encoder_factory, decoder_factory)
 
     source = s.create_source()
 
-    if source_systematic:
-        source.encoder.set_systematic_on()
-    else:
-        source.encoder.set_systematic_off()
+    #if source_systematic:
+        #source.encoder.set_systematic_on()
+    #else:
+    #    source.encoder.set_systematic_off()
 
     sink = s.create_sink()
 
@@ -114,7 +114,7 @@ def main():
         "--symbol-size",
         help="Set symbols size.",
         type=int,
-        default=1)
+        default=2)
     parser.add_argument(
         "--error-source-sink",
         help="Error source to sink.",

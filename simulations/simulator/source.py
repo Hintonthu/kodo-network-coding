@@ -37,5 +37,5 @@ class Source(object):
             payload_data = self.encoder.write_payload()
             p = packet.Packet(self, payload_data)
             self.stats["payload_size"] = p.length
-            #print("Packet ({}): {}".format(p.length, binascii.hexlify(payload_data)))
+            print("Packet ({}): {}".format(p.length, binascii.hexlify(payload_data)))
             channel.transfer(p)
